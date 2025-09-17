@@ -19,9 +19,124 @@
     * { font-family: 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
 
+
+    .loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: white;
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: loader-rotate 2s linear infinite;
+  z-index: 0;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 30px 0 #ad5fff inset,
+      0 60px 60px 0 #471eec inset;
+  }
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 10px 0 #d60a47 inset,
+      0 40px 60px 0 #311e80 inset;
+  }
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 30px 0 #ad5fff inset,
+      0 60px 60px 0 #471eec inset;
+  }
+}
+
+.loader-letter {
+  display: inline-block;
+  opacity: 0.4;
+  transform: translateY(0);
+  animation: loader-letter-anim 2s infinite;
+  z-index: 1;
+  border-radius: 50ch;
+  border: none;
+}
+
+.loader-letter:nth-child(1) {
+  animation-delay: 0s;
+}
+.loader-letter:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loader-letter:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.loader-letter:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.loader-letter:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.loader-letter:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.loader-letter:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.loader-letter:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.loader-letter:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.loader-letter:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes loader-letter-anim {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  40% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
+
     /* TÜM METİNLER İNCE */
     body { font-weight: 300; }
     h1, h2, h3, h4, h5, h6 { font-weight: 300; }
+
+    /* Siyah logoyu beyaza çevir (logo.png siyah olsa bile beyaz görünür) */
+    .logo-white {
+      filter: invert(1) brightness(2) contrast(1.1);
+    }
 
     /* yumuşak blob animasyonları */
     @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(10px,-20px)} }
@@ -35,8 +150,38 @@
 
 <body class="bg-black text-white antialiased">
 
+  <!-- SITE HEADER (glass / blur) -->
+  <!-- HEADER NAV -->
+<nav class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-auto max-w-6xl px-10">
+    <div
+      class="mt-4 flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.05] backdrop-blur-md px-4 sm:px-5 py-2 shadow-lg shadow-black/10">
+      
+      <!-- Left: Logo Text -->
+      <div class="flex-shrink-0">
+        <a href="#top" class="text-xl font-light text-white tracking-wide select-none">
+          Call<b>AI
+        </a>
+      </div>
+
+      <!-- Right: Nav Links -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="#ozellikler"
+           class="px-3 py-2 text-sm rounded-xl border border-transparent hover:border-white/10 hover:bg-white/10 transition">
+          Özellikler
+        </a>
+        <a href="#iletisim"
+           class="px-3 py-2 text-sm rounded-xl bg-white text-black hover:bg-white/90 transition">
+          İletişim
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
   <!-- HERO -->
-  <header class="relative overflow-hidden min-h-[70vh] flex items-center">
+  <header id="top" class="relative overflow-hidden min-h-[70vh] flex items-center pt-24">
     <!-- Blobs -->
     <div class="absolute -top-24 -left-24 w-[320px] h-[320px] bg-fuchsia-400/20 rounded-full blur-3xl animate-float1"></div>
     <div class="absolute -top-28 right-[10%] w-[320px] h-[320px] bg-indigo-400/20 rounded-full blur-3xl animate-float2"></div>
@@ -67,12 +212,24 @@
     </div>
   </header>
 
+ <div class=" flex justify-center">
+    <div class="loader-wrapper">
+      <span class="loader-letter">C</span>
+      <span class="loader-letter">a</span>
+      <span class="loader-letter">l</span>
+      <span class="loader-letter">l</span>
+      <span class="loader-letter">A</span>
+      <span class="loader-letter">I</span>
+     
+      <div class="loader"></div>
+    </div>
+  </div>
+  
+
   <!-- ÖZELLİKLER -->
-  <section id="ozellikler" class="">
+  <section id="ozellikler">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-14">
-        
-      </div>
+      <div class="text-center mb-14"></div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Özel Panel -->
