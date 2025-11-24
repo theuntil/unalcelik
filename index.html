@@ -2,367 +2,233 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CallAI — AI Call Center</title>
-
-  <!-- Tailwind -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ünal Çelik Yapı</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    :root { color-scheme: dark; }
-    * { font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
+  <link rel="icon" type="image/png" href="favicon.png" />
 
 
-    .loader-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 180px;
-  height: 180px;
-  font-family: "Inter", sans-serif;
-  font-size: 1.2em;
-  font-weight: 300;
-  color: white;
-  border-radius: 50%;
-  background-color: transparent;
-  user-select: none;
-}
-
-.loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background-color: transparent;
-  animation: loader-rotate 2s linear infinite;
-  z-index: 0;
-}
-
-@keyframes loader-rotate {
-  0% {
-    transform: rotate(90deg);
-    box-shadow:
-      0 10px 20px 0 #fff inset,
-      0 20px 30px 0 #ad5fff inset,
-      0 60px 60px 0 #471eec inset;
-  }
-  50% {
-    transform: rotate(270deg);
-    box-shadow:
-      0 10px 20px 0 #fff inset,
-      0 20px 10px 0 #d60a47 inset,
-      0 40px 60px 0 #311e80 inset;
-  }
-  100% {
-    transform: rotate(450deg);
-    box-shadow:
-      0 10px 20px 0 #fff inset,
-      0 20px 30px 0 #ad5fff inset,
-      0 60px 60px 0 #471eec inset;
-  }
-}
-
-.loader-letter {
-  display: inline-block;
-  opacity: 0.4;
-  transform: translateY(0);
-  animation: loader-letter-anim 2s infinite;
-  z-index: 1;
-  border-radius: 50ch;
-  border: none;
-}
-
-.loader-letter:nth-child(1) {
-  animation-delay: 0s;
-}
-.loader-letter:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.loader-letter:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.loader-letter:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.loader-letter:nth-child(5) {
-  animation-delay: 0.4s;
-}
-.loader-letter:nth-child(6) {
-  animation-delay: 0.5s;
-}
-.loader-letter:nth-child(7) {
-  animation-delay: 0.6s;
-}
-.loader-letter:nth-child(8) {
-  animation-delay: 0.7s;
-}
-.loader-letter:nth-child(9) {
-  animation-delay: 0.8s;
-}
-.loader-letter:nth-child(10) {
-  animation-delay: 0.9s;
-}
-
-@keyframes loader-letter-anim {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: translateY(0);
-  }
-  20% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-  40% {
-    opacity: 0.7;
-    transform: translateY(0);
-  }
-}
-
-    /* TÜM METİNLER İNCE */
-    body { font-weight: 300; }
-    h1, h2, h3, h4, h5, h6 { font-weight: 300; }
-
-    /* Siyah logoyu beyaza çevir (logo.png siyah olsa bile beyaz görünür) */
-    .logo-white {
-      filter: invert(1) brightness(2) contrast(1.1);
-    }
-
-    /* yumuşak blob animasyonları */
-    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(10px,-20px)} }
-    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-10px,15px)} }
-    @keyframes float3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-25px)} }
-    .animate-float1 { animation: float1 10s ease-in-out infinite; }
-    .animate-float2 { animation: float2 12s ease-in-out infinite; }
-    .animate-float3 { animation: float3 14s ease-in-out infinite; }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="description" content="Karabük'te çelik yapı, kapı, çatı, ferforje ve demir işlerinde profesyonel hizmet. Ünal Çelik Yapı – Serdar Ünal." />
 </head>
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-<body class="bg-black text-white antialiased">
+  <!-- HEADER -->
+  <header class="w-full backdrop-blur-md bg-white/80 border-b border-gray-200 fixed top-0 left-0 z-50 transition">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
-  <!-- SITE HEADER (glass / blur) -->
-  <!-- HEADER NAV -->
-<nav class="fixed top-0 inset-x-0 z-50">
-  <div class="mx-auto max-w-6xl px-10">
-    <div
-      class="mt-4 flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.05] backdrop-blur-md px-4 sm:px-5 py-2 shadow-lg shadow-black/10">
-      
-      <!-- Left: Logo Text -->
-      <div class="flex-shrink-0">
-        <a href="#top" class="text-xl font-light text-white tracking-wide select-none">
-          Call<b>AI
-        </a>
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="/resimler/unalcelikyapı.png" alt="Ünal Çelik Yapı Logo" class="h-12 w-auto" />
+    
       </div>
 
-      <!-- Right: Nav Links -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a href="#ozellikler"
-           class="px-3 py-2 text-sm rounded-xl border border-transparent hover:border-white/10 hover:bg-white/10 transition">
-          Özellikler
-        </a>
-        <a href="#iletisim"
-           class="px-3 py-2 text-sm rounded-xl bg-white text-black hover:bg-white/90 transition">
-          İletişim
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+      <!-- Desktop Menü -->
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#hizmetler" class="hover:text-blue-600 transition">Hizmetler</a>
+        <a href="#projeler" class="hover:text-blue-600 transition">Projeler</a>
+        <a href="#iletisim" class="hover:text-blue-600 transition">İletişim</a>
+      </nav>
 
+      <!-- Desktop Ara Butonu -->
+      <a href="tel:5301596972" class="ml-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center gap-2 text-sm hidden md:flex">
+        <i class="fa-solid fa-phone"></i> Ara
+      </a>
 
-  <!-- HERO -->
-  <header id="top" class="relative overflow-hidden min-h-[70vh] flex items-center pt-24">
-    <!-- Blobs -->
-    <div class="absolute -top-24 -left-24 w-[320px] h-[320px] bg-fuchsia-400/20 rounded-full blur-3xl animate-float1"></div>
-    <div class="absolute -top-28 right-[10%] w-[320px] h-[320px] bg-indigo-400/20 rounded-full blur-3xl animate-float2"></div>
-    <div class="absolute top-1/3 right-[20%] w-[220px] h-[220px] bg-yellow-300/10 rounded-full blur-2xl animate-float3"></div>
-
-    <div class="relative z-10 max-w-5xl mx-auto px-6 py-0 text-center">
-      <div class="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur">
-        <span class="inline-block size-2 rounded-full bg-emerald-400"></span>
-        <span class="text-sm text-white/80">Dinleyen, Anlayan, Çözen: AI</span>
-      </div>
-
-      <h1 class="text-4xl sm:text-5xl md:text-6xl tracking-tight">
-        Müşteri Deneyimini <span class="text-white/90">CallAI</span> ile Yükseltin
-      </h1>
-      <p class="mt-5 text-white/70 max-w-2xl mx-auto">
-        Akıllı iletişim teknolojileriyle müşteri deneyimini yeniden tanımlıyoruz.
-        Yatırım ve iş birliği fırsatları için bizimle iletişime geçin.
-      </p>
-
-      <div class="mt-10 flex items-center justify-center gap-4">
-        <a href="#ozellikler" class="px-6 py-2 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition backdrop-blur text-sm">
-          Özellikleri İncele
-        </a>
-        <a href="#iletisim" class="px-6 py-2 rounded-full bg-white text-black hover:bg-white/90 transition text-sm">
-          İletişime Geç
-        </a>
-      </div>
     </div>
   </header>
 
- <div class=" flex justify-center">
-    <div class="loader-wrapper">
-      <span class="loader-letter">C</span>
-      <span class="loader-letter">a</span>
-      <span class="loader-letter">l</span>
-      <span class="loader-letter">l</span>
-      <span class="loader-letter">A</span>
-      <span class="loader-letter">I</span>
-     
-      <div class="loader"></div>
+  <!-- ⭐ MOBİL TOP BAR (YENİ – HİZALI + KÜÇÜK MENÜ ICONU) -->
+  <div class="md:hidden fixed top-[14px] right-4 z-50 flex items-center gap-3">
+
+    <!-- Ara Butonu -->
+    <a href="tel:5301596972"
+       class="bg-blue-600 text-white px-4 py-[6px] rounded-lg shadow flex items-center gap-2 text-sm">
+      <i class="fa-solid fa-phone text-base"></i> Ara
+    </a>
+
+    <!-- Menü Butonu -->
+    <button id="mobileMenuBtn" class="text-blue-600 p-1 text-xl leading-none">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU PANEL -->
+  <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-xl z-50 translate-x-full transition-transform duration-300 p-6">
+    <button id="closeMobileMenu" class="absolute top-4 right-4 text-gray-600 text-2xl">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <nav class="mt-16 flex flex-col gap-6 text-lg font-medium">
+      <a href="#hizmetler" class="hover:text-blue-600 transition menu-link">Hizmetler</a>
+      <a href="#projeler" class="hover:text-blue-600 transition menu-link">Projeler</a>
+      <a href="#iletisim" class="hover:text-blue-600 transition menu-link">İletişim</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative w-full h-[90vh] bg-cover bg-center mt-20 rounded-b-3xl overflow-hidden" 
+         style="background-image:url('/resimler/background.jpg');">
+
+  <!-- Blur + koyu overlay -->
+  <div class="absolute inset-0 bg-black/40 "></div>
+
+  <!-- İçerik -->
+  <div class="relative z-10 w-full h-full flex items-center">
+    <div class="px-8 md:px-20 max-w-3xl animate-[slideIn_1s_ease-out]">
+
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-2xl">
+        Karabük'te Modern <span class="text-blue-300">Çelik Yapı</span> ve<br>
+        <span class="font-light tracking-wide">Profesyonel Demir İşçiliği</span>
+      </h1>
+
+      <p class="mt-6 text-md md:text-xl text-gray-200/90 leading-relaxed">
+        Ünal Çelik Yapı – Serdar Ünal liderliğinde kapı, çatı, ferforje, çelik konstrüksiyon
+        ve tüm demir işlerinde uzman ekibimizle yanınızdayız.
+      </p>
+
+      <!-- Daha zarif küçük cam efektli buton -->
+      <a href="tel:5301596972"
+         class="mt-10 inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/20
+                text-white backdrop-blur-xl bg-white/10 shadow-md
+                hover:bg-white/20 hover:shadow-xl transition duration-300 text-lg">
+        <i class="fa-solid fa-phone-volume text-lg"></i>
+        Hemen Ara
+      </a>
+
     </div>
   </div>
-  
+</section>
 
-  <!-- ÖZELLİKLER -->
-  <section id="ozellikler">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-14"></div>
+<!-- Animasyon -->
+<style>
+@keyframes slideIn {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+</style>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Özel Panel -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-display"></i>
-          </div>
-          <h3 class="mb-2">Özel Panel</h3>
-          <p class="text-sm text-white/70">
-            Temsilci ve yöneticiler için kişiselleştirilebilir kontrol paneli, canlı metrikler ve anlık aksiyonlar.
-          </p>
+
+<!-- Animasyon -->
+<style>
+@keyframes slideIn {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+  <!-- HIZMETLER -->
+  <section id="hizmetler" class="py-28 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Hizmetlerimiz</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+        <div class="bg-white p-8 shadow-sm border border-gray-200 rounded-2xl text-center hover:shadow-lg transition">
+          <i class="fa-solid fa-industry text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-xl font-semibold mb-3">Çelik Konstrüksiyon</h3>
+          <p class="text-gray-600">Dayanıklı çelik konstrüksiyon yapıları profesyonel ekibimizle inşa ediyoruz.</p>
         </div>
 
-        <!-- Yapay Zeka Takvim Sistemi -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-calendar-days"></i>
-          </div>
-          <h3 class="mb-2">Yapay Zeka Takvim Sistemi</h3>
-          <p class="text-sm text-white/70">
-            Otomatik randevu planlama, uygunluğa göre slot önerisi ve çok kanallı hatırlatmalar.
-          </p>
+        <div class="bg-white p-8 shadow-sm border border-gray-200 rounded-2xl text-center hover:shadow-lg transition">
+          <i class="fa-solid fa-door-open text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-xl font-semibold mb-3">Demir Kapı & Pencere</h3>
+          <p class="text-gray-600">Güvenli, sağlam ve uzun ömürlü kapı-pencere sistemleri.</p>
         </div>
 
-        <!-- Form ile Otomatik Arama -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-phone-volume"></i>
-          </div>
-          <h3 class="mb-2">Form ile Otomatik Arama</h3>
-          <p class="text-sm text-white/70">
-            Web formlarından gelen talepleri otomatik outbound aramaya dönüştürür, temsilciye bağlar ya da IVR’a aktarır.
-          </p>
+        <div class="bg-white p-8 shadow-sm border border-gray-200 rounded-2xl text-center hover:shadow-lg transition">
+          <i class="fa-solid fa-helmet-safety text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-xl font-semibold mb-3">Çatı Sistemleri</h3>
+          <p class="text-gray-600">Profesyonel çatı kaplama, çelik çatı ve onarım hizmetleri.</p>
         </div>
 
-        <!-- Agent Assist -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-          </div>
-          <h3 class="mb-2">Agent Assist</h3>
-          <p class="text-sm text-white/70">
-            Görüşme sırasında canlı öneriler, bilgi tabanı özetleri, otomatik notlama ve görev oluşturma.
-          </p>
+        <div class="bg-white p-8 shadow-sm border border-gray-200 rounded-2xl text-center hover:shadow-lg transition">
+          <i class="fa-solid fa-fire-flame-curved text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-xl font-semibold mb-3">Ferforje Üretimi</h3>
+          <p class="text-gray-600">Bahçe korkuluğu, balkon korkuluğu ve dekoratif ferforje imalatları.</p>
         </div>
 
-        <!-- Duygu & Niyet Analizi -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <h3 class="mb-2">Duygu & Niyet Analizi</h3>
-          <p class="text-sm text-white/70">
-            Duygu, aciliyet ve konu tespitiyle eskalasyon ihtiyacını erkenden belirler.
-          </p>
+        <div class="bg-white p-8 shadow-sm border border-gray-200 rounded-2xl text-center hover:shadow-lg transition">
+          <i class="fa-solid fa-screwdriver-wrench text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-xl font-semibold mb-3">Tamir & Onarım</h3>
+          <p class="text-gray-600">Her türlü demir işçiliği onarım ve yenileme hizmetleri.</p>
         </div>
 
-        <!-- Kalite & Uyum -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-          <h3 class="mb-2">Kalite & Uyum Denetimi</h3>
-          <p class="text-sm text-white/70">
-            %100 çağrı taraması, script uyumu skoru ve risk/uyum ihlali uyarıları.
-          </p>
+        <div class="bg-white p-8 shadow-sm border border-gray-200 rounded-2xl text-center hover:shadow-lg transition">
+          <i class="fa-solid fa-bars-progress text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-xl font-semibold mb-3">Endüstriyel Projeler</h3>
+          <p class="text-gray-600">Fabrika, depo, atölye gibi alanlara özel demir-çelik çözümleri.</p>
         </div>
 
-        <!-- Analitik -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-          <h3 class="mb-2">Gerçek-Zamanlı Analitik</h3>
-          <p class="text-sm text-white/70">
-            SLA, FCR, AHT gibi metriklerde canlı panolar, kök neden analizi ve tahminleme.
-          </p>
-        </div>
-
-        <!-- Entegrasyonlar -->
-        <div class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/20 transition">
-          <div class="text-lg mb-4 inline-flex items-center justify-center size-10 rounded-lg bg-white/10">
-            <i class="fa-solid fa-gears"></i>
-          </div>
-          <h3 class="mb-2">CRM & Entegrasyonlar</h3>
-          <p class="text-sm text-white/70">
-            Salesforce, HubSpot, Zendesk ve özel API’lerle çift yönlü veri akışı.
-          </p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- İLETİŞİM (şeffaf/blur kart) -->
-  <section id="iletisim" class="py-24 relative">
-    <!-- arka plan parıltıları -->
-    <div class="pointer-events-none absolute inset-0">
-      <div class="absolute -top-20 left-1/3 w-72 h-72 bg-fuchsia-500/10 blur-3xl rounded-full"></div>
-      <div class="absolute -bottom-24 right-1/4 w-80 h-80 bg-indigo-500/10 blur-3xl rounded-full"></div>
-    </div>
+  <!-- PROJELER -->
+  <section id="projeler" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Yaptığımız İşlerden Örnekler</h2>
 
-    <div class="relative max-w-xl mx-auto px-6 text-center">
-      <p class="text-sm text-white/60 mb-4">Bağlantıda Kalalım</p>
-      <h3 class="text-3xl md:text-4xl mb-8">İletişim Bilgileri</h3>
-
-      <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 md:p-8 shadow-xl">
-        <!-- e-posta -->
-        <a href="mailto:adnan@terrasoftware.co"
-           class="flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/10">
-          <span class="inline-flex items-center justify-center size-9 rounded-lg bg-white/10">
-            <i class="fa-solid fa-envelope"></i>
-          </span>
-          <span class="text-sm md:text-base">adnan@terrasoftware.co</span>
-        </a>
-
-        <!-- linkedin -->
-        <a href="https://linkedin.com/in/adnanozen" target="_blank" rel="noopener"
-           class="mt-3 flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/10">
-          <span class="inline-flex items-center justify-center size-9 rounded-lg bg-white/10">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </span>
-          <span class="text-sm md:text-base">linkedin.com/in/adnanozen</span>
-        </a>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <img src="resimler/1.png" class="w-full h-64 object-cover rounded-2xl shadow" />
+        <img src="resimler/2.jpg" class="w-full h-64 object-cover rounded-2xl shadow" />
+        <img src="resimler/3.png" class="w-full h-64 object-cover rounded-2xl shadow" />
+        <img src="resimler/4.jpeg" class="w-full h-64 object-cover rounded-2xl shadow" />
+        <img src="resimler/5.jpeg" class="w-full h-64 object-cover rounded-2xl shadow" />
+        <img src="resimler/6.jpeg" class="w-full h-64 object-cover rounded-2xl shadow" />
       </div>
-
-      <!-- Footer / Telif -->
-      <p class="mt-8 text-xs text-white/50">
-        © 2025
-        <a href="https://terrasoftware.co" target="_blank" rel="noopener" class="underline decoration-white/30 hover:decoration-white">
-          Terra Software
-        </a>
-      </p>
     </div>
   </section>
+
+  <!-- ILETISIM -->
+  <section id="iletisim" class="py-28 bg-blue-600 text-white text-center rounded-t-3xl">
+    <h2 class="text-4xl font-bold mb-6">İletişim</h2>
+    <p class="text-xl mb-4">Serdar Ünal</p>
+    <a href="tel:5301596972" class="text-3xl font-bold tracking-wide">0 530 159 69 72</a>
+    <p class="mt-4 text-lg opacity-90">Karabük ve çevresine profesyonel hizmet.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 bg-black text-center text-white text-sm">
+    © 2025 Ünal Çelik Yapı — Tüm Hakları Saklıdır.
+  </footer>
+
+<script>
+// MOBILE MENU
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const closeMobileMenu = document.getElementById('closeMobileMenu');
+const menuLinks = document.querySelectorAll('.menu-link');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.remove('translate-x-full');
+});
+closeMobileMenu.addEventListener('click', () => {
+  mobileMenu.classList.add('translate-x-full');
+});
+
+// CLOSE MENU AFTER CLICK
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('translate-x-full');
+  });
+});
+
+// SMOOTH SCROLL
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+smoothLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+</script>
+
 </body>
 </html>
